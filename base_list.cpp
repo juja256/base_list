@@ -1,7 +1,7 @@
 #include "base_list.h"
 #include <fstream>
 #include <string>
-
+#include <iostream>
 using namespace std;
 
 base_list::node* init_base_list_node(char* data, base_list::node* n) {
@@ -113,15 +113,19 @@ void erase_element(base_list& t, int index) {
 }
 
 void list_dump(base_list& t, std::ostream& s) {
-	base_list::node* tmp = t.head;
-	for (int i=0; i<t.size; i++) {
-		s << tmp->data<<"\n";
-		tmp = tmp->next;
+	if (t.size == 0) s << "List is empty.\n";
+	else {
+		base_list::node* tmp = t.head;
+		for (int i=0; i<t.size; i++) {
+			s << tmp->data<<"\n";
+			tmp = tmp->next;
+		}
 	}
 } 
 
 void clear(base_list& t) {
-	for (int i=0; i<t.size; i++) {
+	static int size = t.size;
+	for (int i=0; i < size; i++) {
 		erase_element(t, 0);
 	}
 }

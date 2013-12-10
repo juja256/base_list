@@ -40,7 +40,7 @@ void erase_element(base_list& t, int index);
 void list_dump(base_list& t, std::ostream& s);
 // output all elements in list 
 
-void clear(base_list& t)
+void clear(base_list& t);
 // delete all elements in list
 
 #endif
