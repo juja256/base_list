@@ -99,6 +99,8 @@ void erase_element(base_list& t, int index) {
 			base_list::node* old = tmp->next;
 			tmp->next = 0;
 			t.tail = tmp;
+			delete old->data;
+			delete old;
 		}
 		else {
 			for (int i=0; i<index-1; i++) 
